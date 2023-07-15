@@ -21,15 +21,13 @@ export class HomePage implements AfterViewInit{
     this.animation = anime({
       targets: elements,
       width: '100%',
-      duration: 1000,
-      loop: false,
-      delay: function(el, i){
-        return value[i]
+      duration: function(el, i){
+        return value[i] * 10
       },
+      loop: false,
       autoplay: false,
       direction: 'alternate',
       easing: 'easeInOutQuad'
     })
   }
-
 }
