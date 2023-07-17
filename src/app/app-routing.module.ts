@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'vertical',
+    loadChildren: () => import('./vertical/vertical.module').then( m => m.VerticalPageModule)
+  },
 ];
 
 @NgModule({

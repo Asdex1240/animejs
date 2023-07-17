@@ -13,12 +13,14 @@
       <ion-card-content>
       <div *ngFor="let div of divs">
         <h2>Corredor {{div.corredor}} break: {{div.value}}</h2>
-          <div class="miElemento"></div>
+
+          <div class="miElemento" [ngStyle]="{'background-color': div.color}"></div>
           <br>
         </div>
       </ion-card-content>
     </ion-card>
     <ion-button (click)="animation.play()">Recargar</ion-button>
+    <ion-button (click)="vertical()">Vertical</ion-button>
   </div>
   <br>
 

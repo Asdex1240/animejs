@@ -2,11 +2,13 @@ import { Component, AfterViewInit } from '@angular/core';
 import anime from 'animejs/lib/anime.es.js';
 import { Router } from '@angular/router';
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-vertical',
+  templateUrl: './vertical.page.html',
+  styleUrls: ['./vertical.page.scss'],
 })
-export class HomePage implements AfterViewInit {
+export class VerticalPage implements AfterViewInit {
+
+  constructor(private router: Router) { }
   divs = [
     { value: 200, corredor: 1, color: 'red'},
     { value: 100, corredor: 2, color: 'green'},
@@ -14,17 +16,14 @@ export class HomePage implements AfterViewInit {
     { value: 150, corredor: 4, color: 'yellow'},
     { value: 123, corredor: 5, color: 'white'},
   ]
-  constructor(private router: Router) {}
   animation!: any
   ngAfterViewInit(): void {
     const value = [200,100,50,150,123]
     const elements = document.querySelectorAll('.miElemento')
     this.animation = anime({
       targets: elements,
-      width: '100%',
-      duration: function(el, i){
-        return value[i] * 10
-      },
+      translateY: (el: any, i: number) => 300 - value[i],
+      duration: 1000,
       loop: false,
       autoplay: true,
       direction: 'alternate',
@@ -32,7 +31,10 @@ export class HomePage implements AfterViewInit {
     })
   }
 
-  vertical(){
-    this.router.navigateByUrl('/vertical')
+  horizontal(){
+    this.router.navigateByUrl('home')
   }
+
+  
+
 }

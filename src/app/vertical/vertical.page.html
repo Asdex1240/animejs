@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>vertical</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-button (click)="this.animation.play()">Recargar</ion-button>
+  <ion-button (click)="horizontal()">Horizontal</ion-button>
+  <ion-card>
+    <ion-card-content>
+      <div class="pista">
+        <div style="display: flex;">
+          <div *ngFor="let div of divs"class="separacion">
+            <div class="miElemento" [ngStyle]="{'background-color': div.color}"></div>
+          </div>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  
+</ion-content>
